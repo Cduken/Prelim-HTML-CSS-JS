@@ -1,240 +1,286 @@
-@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: url(7788653.jpg) no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: url(7788653.jpg) no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
 
-.main-h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
-    font-family: "Honk", system-ui;
-}
+    .main-h1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+        font-family: "Honk", system-ui;
+    }
 
-.wrapper-container {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-    max-width: 1100px;
-    height: auto;
-}
+    .wrapper-container {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        max-width: 1100px;
+        height: 100% auto;
+    }
 
-.wrapper {
-    width: 50%;
-    height: 100%;
-    padding: 30px 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.55);
-    border-radius: 10px;
-    background: transparent;
-    backdrop-filter: blur(40px);
-}
+    .wrapper {
+        width: 50%;
+        height: 100%;
+        padding: 30px 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.55);
+        border-radius: 10px;
+        background: transparent;
+        backdrop-filter: blur(40px);
+    }
 
-.input-box {
-    width: 100%;
-    height: 50px;
-    margin: 50px 0;
-    position: relative;
-}
-
-.input-box input {
-    width: 100%;
-    height: 100%;
-    border-radius: 40px;
-    background: transparent;
-    border: none;
-    outline: none;
-    padding: 0 15px;
-    border: 1px solid rgba(0, 0, 0, 0.255);
-    padding: 0 35px 0 20px;
-    font-size: 16px;
-}
-
-.input-box input::placeholder {
-    color: #aaa3a3;
-}
+    .input-box {
+        width: 100%;
+        height: 50px;
+        margin: 50px 0;
+        position: relative;
+    }
 
 
-.input-box a i {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(50%);
-    font-size: 18px;
-    color: black;
-}
+    .input-box input {
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0 15px;
+        border: 1px solid rgba(0, 0, 0, 0.255);
+        padding: 0 35px 0 20px;
+        font-size: 16px;
+    }
 
-.addToCartBtn {
-    width: 100%;
-    height: 50px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    background: green;
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
+    .input-box select {
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0 15px;
+        border: 1px solid rgba(0, 0, 0, 0.255);
+        font-size: 16px;
+    }
 
-.addToCartBtn:hover {
-    background: rgb(1, 90, 1);
-}
+    #payment {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0 15px;
+        border: 1px solid rgba(0, 0, 0, 0.255);
+        font-size: 16px;
+    }
 
-.checkout-btn {
-    width: 100%;
-    height: 50px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    background: blue;
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
-
-.checkout-btn:hover {
-    background: rgb(1, 1, 138);
-}
+    .input-box input::placeholder {
+        color: #aaa3a3;
+    }
 
 
-.cart-h2 {
-    text-align: center;
-    color: rgba(0, 0, 0, 0.719);
-    margin-top: 20px;
-}
+    .input-box a i {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(50%);
+        font-size: 18px;
+        color: black;
+    }
 
-.list {
-    color: rgba(0, 0, 0, 1);
-    margin: 20px 0;
-    overflow-y: auto;
-    height: 270px;
-}
+    .addToCartBtn {
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        background: green;
+        color: #fff;
+        cursor: pointer;
+        margin-bottom: 20px;
+        transition: 0.3s;
+    }
 
-.list::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
-}
+    .addToCartBtn:hover {
+        background: rgb(1, 90, 1);
+    }
 
-.list::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #ff6ec4, #7873f5); /* Gradient for the thumb */
-    border-radius: 20px; /* Rounded corners for the thumb */
-    border: 3px solid #f1f1f1; /* Adds some space around the thumb */
-}
+    .checkout-btn {
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        background: blue;
+        color: #fff;
+        cursor: pointer;
+        margin-bottom: 20px;
+        margin-top: 138px;
+        transition: 0.3s;
+    }
 
-.list::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #f093fb, #f5576c); /* Brighter gradient on hover */
-}
+    .checkout-btn:hover {
+        background: rgb(1, 1, 138);
+    }
 
-.list::-webkit-scrollbar-track {
-    background: linear-gradient(45deg, #a1c4fd, #c2e9fb); /* Gradient for the track */
-    border-radius: 20px; /* Rounded corners for the track */
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3); /* Adds depth to the track */
-}
 
-/* For Firefox */
-.list {
-    scrollbar-width: thin; /* Makes the scrollbar thinner */
-    scrollbar-color: #ff6ec4 #a1c4fd; /* Thumb and track colors for Firefox */
-}
+    .cart-h2 {
+        text-align: center;
+        color: rgba(0, 0, 0, 0.719);
+        margin-top: 20px;
+    }
 
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
-}
-.edit-btn {
-    background: green;
-    width: 66px;
-}
-.delete-btn {
-    background: red;
-}
+    .list {
+        color: rgba(0, 0, 0, 1);
+        margin: 20px 0;
+        overflow-y: auto;
+        height: 270px;
+    }
 
-.edit-btn, .delete-btn {
-    border: 0;
-    outline: 0;
-    border-radius: 4px;
-    margin-left: 10px;
-    font-size: 15px;
-    color: #fff;
-    padding: 5px 10px;
-    transition: 0.3s;
-}
+    .list::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+    }
 
-.edit-btn:hover {
-    background: rgb(9, 213, 9);
-}
+    .list::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #ff6ec4, #7873f5); /* Gradient for the thumb */
+        border-radius: 20px; /* Rounded corners for the thumb */
+        border: 3px solid #f1f1f1; /* Adds some space around the thumb */
+    }
 
-.delete-btn:hover {
-    background-color: rgb(216, 13, 13);
-}
+    .list::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(45deg, #f093fb, #f5576c); /* Brighter gradient on hover */
+    }
 
- .total-display {
-    display: flex;
-    text-align: center;
-    justify-content: flex-end;
-    margin: 16px 0;
-    font-weight: 750;
-    font-size: 20px;
-}
+    .list::-webkit-scrollbar-track {
+        background: linear-gradient(45deg, #a1c4fd, #c2e9fb); /* Gradient for the track */
+        border-radius: 20px; /* Rounded corners for the track */
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3); /* Adds depth to the track */
+    }
 
-.total-display span {
-    font-weight: 500;
-}
+    /* For Firefox */
+    .list {
+        scrollbar-width: thin; /* Makes the scrollbar thinner */
+        scrollbar-color: #ff6ec4 #a1c4fd; /* Thumb and track colors for Firefox */
+    }
 
-.custom-alert {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
+    }
+    .edit-btn {
+        background: green;
+        width: 66px;
+    }
+    .delete-btn {
+        background: red;
+    }
 
-.custom-alert-content {
-    color: #fff;
-    font-size: 18px;
-    background: transparent;
-    backdrop-filter: blur(100px);
-    padding: 20px;
-    border-radius: 10px;
-    width: 350px;
-    text-align: center;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
+    .shipping-display, .subtotal-display {
+        display: flex;
+        justify-content: flex-end;
+        font-weight: 500;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    
+    .shipping-display span, .subtotal-display span {
+        font-weight: 600;
+    }
 
-.custom-alert-content button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+    #shipping-fee, #subtotal-price {
+        font-weight: 500;
+    }
 
-.custom-alert-content button:hover {
-    background-color: #0056b3;
-}
+    .edit-btn, .delete-btn {
+        border: 0;
+        outline: 0;
+        border-radius: 4px;
+        margin-left: 10px;
+        font-size: 15px;
+        color: #fff;
+        padding: 5px 10px;
+        transition: 0.3s;
+    }
+
+    .edit-btn:hover {
+        background: rgb(9, 213, 9);
+    }
+
+    .delete-btn:hover {
+        background-color: rgb(216, 13, 13);
+    }
+
+    .total-display {
+        display: flex;
+        text-align: center;
+        justify-content: flex-end;
+        font-weight: 750;
+        font-size: 20px;
+    }
+
+    .total-display span {
+        font-weight: 500;
+    }
+
+    .custom-alert {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .custom-alert-content {
+        color: #fff;
+        font-size: 18px;
+        background: transparent;
+        backdrop-filter: blur(100px);
+        padding: 20px;
+        border-radius: 10px;
+        width: 350px;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .custom-alert-content button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .custom-alert-content button:hover {
+        background-color: #0056b3;
+    }
+
+    .display {
+        display: none;
+    }

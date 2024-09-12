@@ -10,7 +10,7 @@
 <body>
 
     <h1 class="main-h1">
-        Enhance Shopping Cart
+        Shopeeng
     </h1>
 
     <div class="wrapper-container">
@@ -33,6 +33,67 @@
                 <input type="number" id="item-quantity" placeholder="Enter quantity" required>
                 <a href="#"><i class='bx bxs-cart'></i></a>
             </div>
+
+            <div class="input-box">
+                <label>Select Town:</label>
+                <select name="town" id="town">
+                    <option value="albur">Alburquerque</option> 
+                    <option value="alicia">Alicia</option>
+                    <option value="anda">Anda</option>
+                    <option value="Antequera">Antequera</option>
+                    <option value="baclayon">Baclayon</option>
+                    <option value="balilihan">Balilihan</option>
+                    <option value="batuan">Batuan</option>
+                    <option value="bien">Bien Unido</option>
+                    <option value="bilar">Bilar</option>
+                    <option value="buenavista">Buenavista</option>
+                    <option value="calape">Calape</option>
+                    <option value="candijay">Candijay</option>
+                    <option value="carmen">Carmen</option>
+                    <option value="catigbian">Catigbian</option>
+                    <option value="clarin">Clarin</option>
+                    <option value="corella">Corella</option>
+                    <option value="cortes">Cortes</option>
+                    <option value="dagohoy">Dagohoy</option>
+                    <option value="danao">Danao</option>
+                    <option value="dauis">Dauis</option>
+                    <option value="dimiao">Dimiao</option>
+                    <option value="duero">Duero</option>
+                    <option value="Guindulman">Guindulman</option>
+                    <option value="Inabanga">Inabanga</option>
+                    <option value="Jagna">Jagna</option>
+                    <option value="Jetafe">Jetafe</option>
+                    <option value="Lila">Lila</option>
+                    <option value="Loay">Loay</option>
+                    <option value="Loboc">Loboc</option>
+                    <option value="Loon">Loon</option>
+                    <option value="Mabini">Mabini</option>
+                    <option value="Maribojoc">Maribojoc</option>
+                    <option value="Panglao">Panglao</option>
+                    <option value="Pilar">Pilar</option>
+                    <option value="Sagbayan">Sagbayan</option>
+                    <option value="San Isidro">San Isidro</option>
+                    <option value="San Migue">San Miguel</option>
+                    <option value="Sevilla">Sevilla</option>
+                    <option value="Sierra Bullones">Sierra Bullones</option>
+                    <option value="Sikatuna">Sikatuna</option>
+                    <option value="Tagbilaran City">Tagbilaran City</option>
+                    <option value="Talibon">Talibon</option>
+                    <option value="Trinidad">Trinidad</option>
+                    <option value="Tubigon">Tubigon</option>
+                    <option value="Ubay">Ubay</option>
+                    <option value="Valencia">Valencia</option>
+                </select>
+            </div>
+
+                <label>Payment Method:</label>
+                <select name="payment" id="payment">
+                    <option value="COD">COD</option>
+                    <option value="Gcash">GCash</option>
+                    <option value="Paymaya">Paymaya</option>
+                    <option value="Online Banking">Online Banking</option>
+                </select>
+            
     
             <button class="addToCartBtn" id="add-to-cart-btn">Add to Cart</button>
         </div>
@@ -40,13 +101,19 @@
         <div class="wrapper">
             <h2 class="cart-h2">CART ITEMS</h2>
             <div class="list" id="cart-items">
-                <!-- Cart items will be displayed here -->
             </div>
             <div class="total-display">
-                Total: <span>₱</span> <span id="total-price">0.00</span>
+                Subtotal: <span>₱</span> <span id="total-price">0.00</span>
+            </div>
+            <div class="shipping-display">
+                <span>Shipping Fee:</span> <span>₱</span> <span id="shipping-fee">0.00</span>
+            </div>
+            <div class="subtotal-display">
+                <span>Total:</span> <span>₱</span> <span id="subtotal-price">0.00</span>
             </div>
             <button class="checkout-btn">Checkout</button>
         </div>
+        
     </div>
 
     <div id="custom-alert" class="custom-alert">
@@ -60,85 +127,155 @@
 
     <script>
         const addToCartBtn = document.getElementById('add-to-cart-btn');
-        const cartItemsContainer = document.getElementById('cart-items');
-        const totalPriceDisplay = document.getElementById('total-price');
-        const checkoutBtn = document.querySelector('.checkout-btn');
+const cartItemsContainer = document.getElementById('cart-items');
+const totalPriceDisplay = document.getElementById('total-price');
+const shippingFeeDisplay = document.getElementById('shipping-fee');
+const subtotalPriceDisplay = document.getElementById('subtotal-price');
+const checkoutBtn = document.querySelector('.checkout-btn');
+const townSelect = document.getElementById('town');
 
-        let totalPrice = 0;
+let totalPrice = 0;
+let shippingFees = {
+    albur: 50,
+    alicia: 40,
+    anda: 60,
+    Antequera: 55,
+    baclayon: 45,
+    balilihan: 50,
+    batuan: 70,
+    bien: 60,
+    bilar: 50,
+    buenavista: 65,
+    calape: 55,
+    candijay: 60,
+    carmen: 50,
+    catigbian: 65,
+    clarin: 55,
+    corella: 50,
+    cortes: 70,
+    dagohoy: 60,
+    danao: 55,
+    dauis: 50,
+    dimiao: 65,
+    duero: 60,
+    Guindulman: 70,
+    Inabanga: 55,
+    Jagna: 65,
+    Jetafe: 60,
+    Lila: 50,
+    Loay: 70,
+    Loboc: 55,
+    Loon: 60,
+    Mabini: 65,
+    Maribojoc: 50,
+    Panglao: 70,
+    Pilar: 55,
+    Sagbayan: 60,
+    'San Isidro': 50,
+    'San Migue': 70,
+    Sevilla: 55,
+    'Sierra Bullones': 65,
+    Sikatuna: 60,
+    'Tagbilaran City': 70,
+    Talibon: 55,
+    Trinidad: 60,
+    Tubigon: 65,
+    Ubay: 50,
+    Valencia: 70
+};
 
-        function updateTotalPrice() {
-            let checkedTotal = 0;
-            document.querySelectorAll('.cart-item input[type="checkbox"]').forEach((checkbox) => {
-                if (checkbox.checked) {
-                    const label = checkbox.nextElementSibling.textContent;
-                    const [itemName, rest] = label.split(' - ');
-                    const [itemPrice, itemQuantity] = rest.split(' x ');
-                    checkedTotal += parseFloat(itemPrice.replace('₱', '')) * parseInt(itemQuantity);
-                }
-            });
-            totalPriceDisplay.textContent = checkedTotal.toFixed(2);
+function updateTotalPrice() {
+    let checkedTotal = 0;
+    document.querySelectorAll('.cart-item input[type="checkbox"]').forEach((checkbox) => {
+        if (checkbox.checked) {
+            const label = checkbox.nextElementSibling.textContent;
+            const [itemName, rest] = label.split(' - ');
+            const [itemPrice, itemQuantity] = rest.split(' x ');
+            checkedTotal += parseFloat(itemPrice.replace('₱', '')) * parseInt(itemQuantity);
         }
+    });
+    totalPrice = checkedTotal;
+    totalPriceDisplay.textContent = totalPrice.toFixed(2);
+    updateShippingAndSubtotal();
+}
 
-            addToCartBtn.addEventListener('click', () => {
-            const itemName = document.getElementById('item-name').value;
-            const itemPrice = parseFloat(document.getElementById('item-price').value);
-            const itemQuantity = parseInt(document.getElementById('item-quantity').value);
+function updateShippingAndSubtotal() {
+    const selectedTown = townSelect.value;
+    const shippingFee = shippingFees[selectedTown] || 0;
+    shippingFeeDisplay.textContent = shippingFee.toFixed(2);
+    subtotalPriceDisplay.textContent = (totalPrice + shippingFee).toFixed(2);
+}
 
-            if (itemName && itemPrice && itemQuantity) {
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `
-                    <div>
-                        <input type="checkbox">
-                        <label>${itemName} - ₱${itemPrice.toFixed(2)} x ${itemQuantity}</label>
-                    </div>
-                    <div>
-                        <button class="edit-btn">Edit</button>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-                `;
-                cartItemsContainer.appendChild(cartItem);
+function updateCartVisibility() {
+    if (cartItemsContainer.children.length === 0) {
+        cartItemsContainer.classList.add('hidden');
+    } else {
+        cartItemsContainer.classList.remove('hidden');
+    }
+}
 
-                cartItem.querySelector('input[type="checkbox"]').addEventListener('change', updateTotalPrice);
+addToCartBtn.addEventListener('click', () => {
+    const itemName = document.getElementById('item-name').value;
+    const itemPrice = parseFloat(document.getElementById('item-price').value);
+    const itemQuantity = parseInt(document.getElementById('item-quantity').value);
 
-                document.getElementById('item-name').value = '';
-                document.getElementById('item-price').value = '';
-                document.getElementById('item-quantity').value = '';
-            } else {
-                alert('Please fill out all fields');
-            }
-        });
+    if (itemName && itemPrice && itemQuantity) {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+            <div>
+                <input type="checkbox">
+                <label>${itemName} - ₱${itemPrice.toFixed(2)} x ${itemQuantity}</label>
+            </div>
+            <div>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        `;
+        cartItemsContainer.appendChild(cartItem);
 
-        cartItemsContainer.addEventListener('click', (event) => {
-            if (event.target.classList.contains('delete-btn')) {
-                const cartItem = event.target.parentElement.parentElement;
-                cartItem.remove();
-                updateTotalPrice();
-            } else if (event.target.classList.contains('edit-btn')) {
-                const cartItem = event.target.parentElement.parentElement;
-                const label = cartItem.querySelector('label').textContent;
-                const [itemName, rest] = label.split(' - ');
-                const [itemPrice, itemQuantity] = rest.split(' x ');
+        cartItem.querySelector('input[type="checkbox"]').addEventListener('change', updateTotalPrice);
 
-                document.getElementById('item-name').value = itemName;
-                document.getElementById('item-price').value = itemPrice.replace('₱', '');
-                document.getElementById('item-quantity').value = itemQuantity;
+        document.getElementById('item-name').value = '';
+        document.getElementById('item-price').value = '';
+        document.getElementById('item-quantity').value = '';
 
-                cartItem.remove();
-                updateTotalPrice();
-            }
-        });
+        updateCartVisibility(); // Update visibility
+        updateShippingAndSubtotal(); // Update shipping fee and subtotal
+    } else {
+        alert('Please fill out all fields');
+    }
+});
 
-    checkoutBtn.addEventListener('click', () => {
+cartItemsContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('delete-btn')) {
+        const cartItem = event.target.parentElement.parentElement;
+        cartItem.remove();
+        updateTotalPrice();
+        updateCartVisibility(); // Update visibility
+    } else if (event.target.classList.contains('edit-btn')) {
+        const cartItem = event.target.parentElement.parentElement;
+        const label = cartItem.querySelector('label').textContent;
+        const [itemName, rest] = label.split(' - ');
+        const [itemPrice, itemQuantity] = rest.split(' x ');
+
+        document.getElementById('item-name').value = itemName;
+        document.getElementById('item-price').value = itemPrice.replace('₱', '');
+        document.getElementById('item-quantity').value = itemQuantity;
+
+        cartItem.remove();
+        updateTotalPrice();
+        updateCartVisibility(); // Update visibility
+    }
+});
+
+checkoutBtn.addEventListener('click', () => {
     const checkedItems = [];
-    
-   
     document.querySelectorAll('.cart-item input[type="checkbox"]').forEach((checkbox) => {
         if (checkbox.checked) {
             const label = checkbox.nextElementSibling.textContent;
             const [itemName, rest] = label.split(' - '); 
             const [itemPrice, itemQuantity] = rest.split(' x ');
-            
             checkedItems.push(`${itemName} (₱${itemPrice.replace('₱', '')} x ${itemQuantity})`);
         }
     });
@@ -150,25 +287,31 @@
     }
 });
 
-
 function showCustomAlert(message, items) {
     const alertBox = document.getElementById('custom-alert');
     const alertMessage = document.getElementById('alert-message');
     const closeAlertBtn = document.getElementById('close-alert-btn');
 
-    let formattedMessage = `<span style="color: #fff;">The following items are checked out:</span><br><br>`;
+    let formattedMessage = `<span style="color: #fff;">${message}</span><br><br>`;
     formattedMessage += items.map(item => `<span style="color: #39ff14;">${item}</span>`).join('<br><br>'); 
 
-    
     alertMessage.innerHTML = formattedMessage;
-    
-    
+
     alertBox.style.display = 'flex';
 
     closeAlertBtn.addEventListener('click', () => {
         alertBox.style.display = 'none';
     });
 }
+
+// Update shipping fee and subtotal on town change
+townSelect.addEventListener('change', updateShippingAndSubtotal);
+
+// Initial visibility update
+updateCartVisibility();
+updateShippingAndSubtotal();
+
+
 
 
     
